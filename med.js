@@ -234,6 +234,21 @@ function showRelaxingSounds() {
     });
 
     relaxingMusic.play();
+
+    const audios = [relaxingMusic, lakeMusic, quietMusic];
+
+    audios.forEach(audio => {
+        audio.addEventListener("play", () => {
+            audios.forEach(otherAudio => {
+                if (otherAudio !== audio) {
+                    otherAudio.pause();
+                    otherAudio.currentTime = 0;
+                }
+            });
+        });
+    });
+
+    
 }
 
 function showBinauralSounds() {
@@ -247,7 +262,7 @@ function showBinauralSounds() {
             <div class="track-info">
                 <h4>Binaural Music</h4>
                 <audio id="br1" controls>
-                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+                    <source src="Binaruial_1_song.mp3" type="audio/mpeg">
                 </audio>
             </div>
         </div>
@@ -332,6 +347,22 @@ function showBinauralSounds() {
         br2.play();
     })
     br3.play();
+
+    const audios = [br1, br2, br3];
+
+    audios.forEach(audio => {
+        audio.addEventListener("play", () => {
+            audios.forEach(otherAudio => {
+                if (otherAudio !== audio) {
+                    otherAudio.pause();
+                    otherAudio.currentTime = 0;
+                }
+            });
+        });
+    });
+
+
+    
 }
 
 
