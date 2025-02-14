@@ -90,7 +90,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         
-        let otp;
+        var otp;
         function generateOTP() {
             const phone = document.getElementById('phone').value;
             if (phone === '') {
@@ -103,9 +103,11 @@
         }
         function verifyOTP() {
             const userOTP = +prompt('Enter the OTP:');
-            if (userOTP == otp || userOTP!='') {
+            console.log(otp)
+            console.log(userOTP)
+            if (userOTP === otp) {
                 window.open("./med.html", "_blank");
-                phone.value=''
+                document.getElementById('phone').value = '';
             } else {
                 Swal.fire('Error', 'Invalid OTP', 'error');
             }
